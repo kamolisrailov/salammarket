@@ -24,11 +24,9 @@
 
                     <div class="wrap-right">
 
-                        <div class="sort-item orderby ">
-                            <select name="orderby" class="use-chosen" >
-                                <option value="menu_order" selected="selected">Default sorting</option>
-                                <option value="popularity">Sort by popularity</option>
-                                <option value="rating">Sort by average rating</option>
+                        <div class="sort-item orderby " >
+                            <select wire:model="sorting" name="orderby" class="form-control">
+                                <option value="default" selected="selected">Default sorting</option>
                                 <option value="date">Sort by newness</option>
                                 <option value="price">Sort by price: low to high</option>
                                 <option value="price-desc">Sort by price: high to low</option>
@@ -36,7 +34,7 @@
                         </div>
 
                         <div class="sort-item product-per-page">
-                            <select name="post-per-page" class="use-chosen" >
+                            <select name="post-per-page"  wire:model="pagesize" >
                                 <option value="12" selected="selected">12 per page</option>
                                 <option value="16">16 per page</option>
                                 <option value="18">18 per page</option>
@@ -205,7 +203,7 @@
                                 <div class="product product-widget-style">
                                     <div class="thumbnnail">
                                         <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="{{ asset('assets/images/products/digital_01.jpg') }}" alt=""></figure>
+                                            <figure><img src="{{ asset('assets/images/products/digital_1.jpg') }}" alt=""></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
