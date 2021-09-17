@@ -20,6 +20,15 @@
                 <h3 class="box-title">Products Name</h3>
                 <ul class="products-cart">
                     @foreach (Cart::content() as $item)
+                    <?php
+ //Cart::destroy();
+                        // echo '<pre>';
+                        // var_dump($item);
+                        // echo '</pre>';
+                        // exit;
+
+
+                     ?>
                     <li class="pr-cart-item">
                         <div class="product-image">
                             <figure><img src="{{ asset('assets/images/products') }}/{{$item->model->image}}" alt="{{$item->model->name}}"></figure>
