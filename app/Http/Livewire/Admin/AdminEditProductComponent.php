@@ -52,8 +52,40 @@ class AdminEditProductComponent extends Component
     }
 
     use WithFileUploads;
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+        'name' => 'required',
+        'slug' => 'required|unique:products',
+        'short_description' => 'required',
+        'description' => 'required',
+        'regular_price' => 'required|numeric',
+        'sale_price' => 'numeric',
+        'SKU' => 'required',
+        'stock_status' => 'required',
+        'quantity' => 'required|numeric',
+        'newimage' => 'required|mimes:jpeg,png',
+        'category_id' => 'required',
+        ]);
+    }
+
+
     public function UpdateProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'sale_price' => 'numeric',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'quantity' => 'required|numeric',
+            'newimage' => 'required|mimes:jpeg,png',
+            'category_id' => 'required',
+        ]);
 
         $product = Product::find($this->product_id);
         $product->name = $this->name;

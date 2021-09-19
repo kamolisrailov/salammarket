@@ -36,8 +36,39 @@ class AdminAddProductComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
     use WithFileUploads;
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+        'name' => 'required',
+        'slug' => 'required|unique:products',
+        'short_description' => 'required',
+        'description' => 'required',
+        'regular_price' => 'required|unique:numeric',
+        'sale_price' => 'numeric',
+        'SKU' => 'required',
+        'stock_status' => 'required',
+        'quantity' => 'required|numeric',
+        'image' => 'required|mimes:jpeg,png',
+        'category_id' => 'required',
+        ]);
+    }
+
     public function AddProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required|unique:numeric',
+            'sale_price' => 'numeric',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'quantity' => 'required|numeric',
+            'image' => 'required|mimes:jpeg,png',
+            'category_id' => 'required',
+        ]);
 
         $product = new Product();
         $product->name = $this->name;
