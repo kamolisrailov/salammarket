@@ -20,6 +20,7 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\WhishlistComponent;
 use App\Providers\RouteServiceProvider;
 use Composer\Command\SearchCommand;
 use Faker\Guesser\Name;
@@ -53,6 +54,8 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/productcategory/{category_slug}', CategoryComponent::class)->name('product.category');
 
 Route::get('/search', SearchComponent::class)->name('product.search');
+
+Route::get('/whishlist', WhishlistComponent::class)->name('product.whishlist');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

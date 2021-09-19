@@ -27,10 +27,31 @@ class ShopComponent extends Component
          $this->max_price =1000;
      }
     public function store($product_id, $product_name, $product_price) {
-        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
         session()->flash('success_message', 'Item added in Cart');
         return redirect()->route('product.cart');
     }
+
+
+    public function addToWishList($product_id, $product_name, $product_price)
+    {
+        Cart::instance('whishlist')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        $this->emitTo('whishlist-count-component','refreshComponent');
+    }
+
+    public function removeFromWishlist($product_id)
+    {
+        foreach(Cart::instance('whishlist')->content() as $witem)
+        {
+            if($witem->id == $product_id)
+            {
+                Cart::instance('whishlist')->remove($witem->rowId);
+                $this->emitTo('whishlist-count-component','refreshComponent');
+            }
+        }
+    }
+
+
     use WithPagination;
     public function render()
     {
