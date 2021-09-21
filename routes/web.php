@@ -22,6 +22,7 @@ use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\WhishlistComponent;
 use App\Providers\RouteServiceProvider;
@@ -59,6 +60,8 @@ Route::get('/productcategory/{category_slug}', CategoryComponent::class)->name('
 Route::get('/search', SearchComponent::class)->name('product.search');
 
 Route::get('/whishlist', WhishlistComponent::class)->name('product.whishlist');
+
+Route::get('/thank-you', ThankyouComponent::class)->name('thankyou');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

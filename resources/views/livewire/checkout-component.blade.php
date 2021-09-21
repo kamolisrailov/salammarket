@@ -10,7 +10,7 @@
             </ul>
         </div>
         <div class=" main-content-area">
-
+            <form wire:submit.prevent="placeOrder">
             <div class="main-content-area">
                 <div class="row">
                     <div class="col-md-12">
@@ -20,35 +20,53 @@
                             {{-- <form action="#" method="get" name="frm-billing"> --}}
                                 <p class="row-in-form">
                                     <label for="fname">first name<span>*</span></label>
-                                    <input  type="text" name="fname" value="" placeholder="Your name">
+                                    <input  type="text" name="fname" value="" placeholder="Your name" wire:model="firstname">
+                                    @error('firstname') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="lname">last name<span>*</span></label>
-                                    <input type="text" name="lname" value="" placeholder="Your last name">
+                                    <input type="text" name="lname" value="" placeholder="Your last name" wire:model="lastname">
+                                    @error('lastname') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="email">Email Addreess:</label>
-                                    <input  type="email" name="email" value="" placeholder="Type your email">
+                                    <input  type="email" name="email" value="" placeholder="Type your email" wire:model="email">
+                                    @error('email') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="phone">Phone number<span>*</span></label>
-                                    <input  type="number" name="phone" value="" placeholder="10 digits format">
+                                    <input  type="number" name="phone" value="" placeholder="10 digits format" wire:model="mobile">
+                                    @error('mobile') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
-                                    <label for="add">Address:</label>
-                                    <input  type="text" name="add" value="" placeholder="Street at apartment number">
+                                    <label for="add">Line1:</label>
+                                    <input  type="text" name="add" value="" placeholder="Street at apartment number" wire:model="line1">
+                                    @error('line1') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="add">Line2:</label>
+                                    <input  type="text" name="add" value="" placeholder="Street at apartment number" wire:model="line2">
+                                    @error('line2') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="country">Country<span>*</span></label>
-                                    <input type="text" name="country" value="" placeholder="United States">
+                                    <input type="text" name="country" value="" placeholder="United States" wire:model="country">
+                                    @error('country') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
-                                    <label for="zip-code">Postcode / ZIP:</label>
-                                    <input  type="number" name="zip-code" value="" placeholder="Your postal code">
+                                    <label for="zip-code">Province</label>
+                                    <input  type="number" name="province" value="" placeholder="Your postal code" wire:model="province">
+                                    @error('province') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="city">Town / City<span>*</span></label>
-                                    <input type="text" name="city" value="" placeholder="City name">
+                                    <input type="text" name="city" value="" placeholder="City name" wire:model="city">
+                                    @error('city') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="zip-code">Postcode / ZIP:</label>
+                                    <input  type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="zipcode">
+                                    @error('zipcode') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form fill-wife">
                                     {{-- <label class="checkbox-field">
@@ -73,35 +91,53 @@
                             {{-- <form action="#" method="get" name="frm-billing"> --}}
                                 <p class="row-in-form">
                                     <label for="fname">first name<span>*</span></label>
-                                    <input  type="text" name="fname" value="" placeholder="Your name">
+                                    <input  type="text" name="fname" value="" placeholder="Your name" wire:model="s_firstname">
+                                    @error('s_firstname') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="lname">last name<span>*</span></label>
-                                    <input type="text" name="lname" value="" placeholder="Your last name">
+                                    <input type="text" name="lname" value="" placeholder="Your last name" wire:model="s_lastname">
+                                    @error('s_lastname') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="email">Email Addreess:</label>
-                                    <input  type="email" name="email" value="" placeholder="Type your email">
+                                    <input  type="email" name="email" value="" placeholder="Type your email" wire:model="s_email">
+                                    @error('s_email') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="phone">Phone number<span>*</span></label>
-                                    <input  type="number" name="phone" value="" placeholder="10 digits format">
+                                    <input  type="number" name="phone" value="" placeholder="10 digits format" wire:model="s_mobile">
+                                    @error('s_mobile') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
-                                    <label for="add">Address:</label>
-                                    <input  type="text" name="add" value="" placeholder="Street at apartment number">
+                                    <label for="add">Line1:</label>
+                                    <input  type="text" name="add" value="" placeholder="Street at apartment number" wire:model="s_line1">
+                                    @error('s_line1') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="add">Line2:</label>
+                                    <input  type="text" name="add" value="" placeholder="Street at apartment number" wire:model="s_line2">
+                                    @error('s_line2') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="country">Country<span>*</span></label>
-                                    <input type="text" name="country" value="" placeholder="United States">
+                                    <input type="text" name="country" value="" placeholder="United States" wire:model="s_country">
+                                    @error('s_country') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
-                                    <label for="zip-code">Postcode / ZIP:</label>
-                                    <input  type="number" name="zip-code" value="" placeholder="Your postal code">
+                                    <label for="zip-code">Province</label>
+                                    <input  type="number" name="province" value="" placeholder="Your postal code" wire:model="s_province">
+                                    @error('s_province') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
                                     <label for="city">Town / City<span>*</span></label>
-                                    <input type="text" name="city" value="" placeholder="City name">
+                                    <input type="text" name="city" value="" placeholder="City name" wire:model="s_city">
+                                    @error('s_city') <span class="text-danger">{{$message}}</span> @enderror
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="zip-code">Postcode / ZIP:</label>
+                                    <input  type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="s_zipcode">
+                                    @error('s_zipcode') <span class="text-danger">{{$message}}</span> @enderror
                                 </p>
                                 {{-- <p class="row-in-form fill-wife">
                                     {{-- <label class="checkbox-field">
@@ -128,33 +164,36 @@
                     <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
                     <div class="choose-payment-methods">
                         <label class="payment-method">
-                            <input name="payment-method" id="payment-method-bank" value="bank" type="radio">
+                            <input name="payment-method" id="payment-method-bank" value="cash" type="radio" wire:model="paymentmode">
                             <span>Cash On Delivery</span>
                             <span class="payment-desc">Order now Pay on Delivery</span>
                         </label>
                         <label class="payment-method">
-                            <input name="payment-method" id="payment-method-visa" value="visa" type="radio">
+                            <input name="payment-method" id="payment-method-visa" value="visa" type="radio" wire:model="paymentmode">
                             <span>visa</span>
                             <span class="payment-desc">Visa</span>
                         </label>
                         <label class="payment-method">
-                            <input name="payment-method" id="payment-method-master" value="master" type="radio">
+                            <input name="payment-method" id="payment-method-master" value="master" type="radio" wire:model="paymentmode">
                             <span>mastercard</span>
                             <span class="payment-desc">Master</span>
                         </label>
                         <label class="payment-method">
-                            <input name="payment-method" id="payment-method-humo" value="humo" type="radio">
+                            <input name="payment-method" id="payment-method-humo" value="humo" type="radio" wire:model="paymentmode">
                             <span>humo</span>
                             <span class="payment-desc">Humo</span>
                         </label>
                         <label class="payment-method">
-                            <input name="payment-method" id="payment-method-uzcard" value="uzcard" type="radio">
+                            <input name="payment-method" id="payment-method-uzcard" value="uzcard" type="radio" wire:model="paymentmode">
                             <span>uzcard</span>
                             <span class="payment-desc">Uzcard</span>
                         </label>
+                        @error('paymentmode') <span class="text-danger">{{$message}}</span> @enderror
                     </div>
-                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
-                    <a href="thankyou.html" class="btn btn-medium">Place order now</a>
+                    @if(Session::has('checkout'))
+                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{Session::get('checkout')['total']}}</span></p>
+                    @endif
+                    <button type="submit" class="btn btn-medium">Place order now</button>
                 </div>
                 <div class="summary-item shipping-method">
                     <h4 class="title-box f-title">Shipping method</h4>
@@ -163,7 +202,7 @@
 
                 </div>
             </div>
-
+        </form>
 
 
         </div><!--end main content area-->
