@@ -174,7 +174,7 @@
                             <span class="payment-desc">Visa</span>
                         </label>
                         <label class="payment-method">
-                            <input name="payment-method" id="payment-method-master" value="master" type="radio" wire:model="paymentmode">
+                            <input name="payment-method" id="payment-method-master" value="mastercard" type="radio" wire:model="paymentmode">
                             <span>mastercard</span>
                             <span class="payment-desc">Master</span>
                         </label>

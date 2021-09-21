@@ -154,15 +154,15 @@ class CheckoutComponent extends Component
                 $shipping->save();
         }
 
-        if($this->paymentmode = 'cash')
-        {
+        // if($this->paymentmode = 'cash')
+        // {
             $transaction = new Transaction();
             $transaction->user_id = Auth::user()->id;
             $transaction->order_id = $order->id;
-            $transaction->mode = 'cash';
+            $transaction->mode = $this->paymentmode;
             $transaction->status = 'pending';
             $transaction->save();
-        }
+        //}
 
         $this->thankyou = 1;
 
