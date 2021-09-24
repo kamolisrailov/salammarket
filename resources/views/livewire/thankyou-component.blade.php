@@ -15,7 +15,9 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h2>Thank you for your order</h2>
-                    <p>A confirmation email was sent.</p>
+                    <p>A confirmation email was sent to <b>{{$email}}.</b></p>
+                    <p>If you didn't recieve the email, please check spam.</p>
+
                     <a href="/shop" class="btn btn-submit btn-submitx">Continue Shopping</a>
 				</div>
 			</div>

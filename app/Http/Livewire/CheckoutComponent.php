@@ -42,6 +42,7 @@ class CheckoutComponent extends Component
 
     public $paymentmode;
     public $thankyou;
+    public $order_id;
 
 
     public function updated($fields)
@@ -165,9 +166,10 @@ class CheckoutComponent extends Component
             $transaction->status = 'pending';
             $transaction->save();
         //}
+            $this->order_id = $order->id;
             $this->resetCart();
 
-            $this->sendOrderConfirmationMail($order);
+           // $this->sendOrderConfirmationMail($order);
 
     }
 
@@ -181,10 +183,10 @@ class CheckoutComponent extends Component
 
 
 
-    public function sendOrderConfirmationMail($order)
-    {
-        Mail::to($order->email)->send(new OrderMail($order));
-    }
+    // public function sendOrderConfirmationMail($order)
+    // {
+    //     Mail::to($order->email)->send(new OrderMail($order));
+    // }
 
 
     public function verifyForCheckout()
@@ -195,7 +197,7 @@ class CheckoutComponent extends Component
         }
         else if($this->thankyou)
         {
-            return redirect()->route('thankyou');
+            return redirect()->route('thankyou',['order_id'=>$this->order_id]);
         }
         else if(!session()->get('checkout'))
         {
