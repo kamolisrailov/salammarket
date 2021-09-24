@@ -173,6 +173,7 @@ class CartComponent extends Component
         if(Auth::check())
         {
             Cart::instance('cart')->store(Auth::user()->email);
+            Cart::instance('whishlist')->store(Auth::user()->email);
         }
 
 

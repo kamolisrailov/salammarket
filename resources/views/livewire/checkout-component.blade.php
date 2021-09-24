@@ -200,7 +200,6 @@
 
                     </div>
                     @endif
-
                     <button type="submit" class="btn btn-medium">Place order now</button>
                 </div>
                 <div class="summary-item shipping-method">
