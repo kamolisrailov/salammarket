@@ -22,11 +22,21 @@
             <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
-                        <div class="product-gallery">
+                        <div class="product-gallery" wire:ignore>
                           <ul class="slides">
                             <li data-thumb="{{ asset('assets/images/products') }}/{{ $product->image }}">
                                 <img src="{{ asset('assets/images/products') }}/{{ $product->image }}" alt="{{$product->name}}" />
                             </li>
+                            @php
+                                $images = explode(",",$product->images)
+                            @endphp
+                            @foreach ($images as $image)
+                            @if ($image)
+                            <li data-thumb="{{ asset('assets/images/products') }}/{{ $image }}">
+                                <img src="{{ asset('assets/images/products') }}/{{ $image }}" alt="{{$product->name}}" />
+                            </li>
+                            @endif
+                            @endforeach
                           </ul>
                         </div>
                     </div>
@@ -233,7 +243,7 @@
                 <div class="widget mercado-widget widget-product">
                     <h2 class="widget-title">Popular Products</h2>
                     <div class="widget-content">
-                        <ul class="products">
+                        <ul class="products" wire:ignore>
                             @foreach ($popular_products as $p_product)
                             <li class="product-item">
                                 <div class="product product-widget-style">

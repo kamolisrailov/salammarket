@@ -92,7 +92,7 @@
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="stock_status">
                                         <option value="instock">InStock</option>
-                                        <option value="instock">Out of Stock</option>
+                                        <option value="outofstock">Out of Stock</option>
                                     </select>
                                     @error('stock_status')
                                     <p class="text-danger">{{$message}}</p>
@@ -130,6 +130,26 @@
                                         <img src="{{asset('assets/images/products')}}/{{$image}}" width="120" />
                                     @endif
                                     @error('newimage')
+                                    <p class="text-danger">{{$message}}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Product Gallery</label>
+                                <div class="col-md-4">
+                                    <input type="file" placeholder="Quantity" class="input-file" wire:model="newimages" multiple/>
+                                    @if ($newimages)
+                                    @foreach ($newimages as $newimage)
+                                        <img src="{{$newimage->temporaryUrl()}}" width="120" />
+                                        @endforeach
+                                    @else
+                                        @foreach ($images as $image)
+                                            @if($image)
+                                                <img src="{{asset('assets/images/products')}}/{{$image}}" width="120" />
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                    @error('images')
                                     <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </div>
