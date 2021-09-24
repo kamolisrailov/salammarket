@@ -180,7 +180,7 @@
             </div>
 
             <div class="wrap-back-link">
-                <div class="container">
+                {{-- <div class="container">
                     <div class="back-link-box">
                         <h3 class="backlink-title">Quick Links</h3>
                         <div class="back-link-row">
@@ -226,7 +226,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </div>
@@ -234,15 +234,15 @@
         <div class="coppy-right-box">
             <div class="container">
                 <div class="coppy-right-item item-left">
-                    <p class="coppy-right-text">Copyright © 2020 Surfside Media. All rights reserved</p>
+                    <p class="coppy-right-text">Copyright © 2021 Salam Group</p>
                 </div>
                 <div class="coppy-right-item item-right">
                     <div class="wrap-nav horizontal-nav">
                         <ul>
-                            <li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
-                            <li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
-                            <li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-                            <li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
+                            <li class="menu-item"><a href="#" class="link-term">About us</a></li>
+                            <li class="menu-item"><a href="#" class="link-term">Privacy Policy</a></li>
+                            <li class="menu-item"><a href="#" class="link-term">Terms & Conditions</a></li>
+                            <li class="menu-item"><a href="#" class="link-term">Return Policy</a></li>
                         </ul>
                     </div>
                 </div>
