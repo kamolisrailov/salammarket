@@ -101,6 +101,9 @@
                                                         <a title="All Orders" href="{{route('admin.orders')}}">All Orders</a>
                                                     </li>
                                                     <li class="menu-item">
+                                                        <a title="Create Order" href="{{route('admin.createorder')}}">Create Order</a>
+                                                    </li>
+                                                    <li class="menu-item">
                                                         <a title="Contact Messages" href="{{route('admin.contact')}}">Contact Messages</a>
                                                     </li>
                                                     <li class="menu-item">

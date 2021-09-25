@@ -5,10 +5,11 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Order;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
 
 class AdminOrderComponent extends Component
 {
-
+    use WithPagination;
     public function updateOrderStatus($order_id, $status)
     {
         $order = Order::find($order_id);
