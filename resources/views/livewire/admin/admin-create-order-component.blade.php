@@ -20,10 +20,8 @@
                 <div class="panel-heading">
                     <div class="row">
 
-                    {{-- <div class="col-md-6">
-                        <a href="{{route('admin.addproduct')}}" class="btn btn-success pull-right">Add New </a>
-                    </div> --}}
-                    <div class="col-md-12">
+
+                    <div class="col-md-6">
                     <div class="search center-section">
                         <div class="wrap-search-form">
                             <form id="form-search-top" name="form-search-top">
@@ -32,6 +30,13 @@
                             </form>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <a href="#" class="btn btn-success pull-right"  style="margin-left: 10px;">Create pdf</a>
+                    <a href="#" class="btn btn-success pull-right" wire:click.prevent="createDoc">Create docx</a>
                 </div>
             </div>
         </div>
@@ -113,13 +118,16 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Artikul</th>
+
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Stock</th>
                                 <th>Price</th>
                                 <th>Sale Price</th>
                                 <th>Category</th>
+                                <th>Qty</th>
                                 <th>Date</th>
+
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -129,14 +137,24 @@
                                 <tr>
                                     <td>{{$item->model->id}}</td>
                                     <td>{{$item->model->SKU}}</td>
+
+                                    {{-- <div class="quantity">
+                                        <div class="quantity-input">
+                                    <td> <a class="btn btn-increase" href="#" wire:click.event="increaseQuantity('{{$item->rowId}}')"></a> <a class="btn btn-reduce" href="#" wire:click.event="decreaseQuantity('{{$item->rowId}}')"></a></td>
+                                        </div></div> --}}
                                     <td><img src="{{asset('assets/images/products')}}/{{$item->model->image}}" width="60"/></td>
                                     <td>{{$item->model->name}}</td>
                                     <td>{{$item->model->stock_status}}</td>
                                     <td>{{$item->model->regular_price}}</td>
                                     <td>{{$item->model->sale_price}}</td>
                                     <td>{{$item->model->category->name}}</td>
+                                    <td wire:model="qty">
+                                        {{-- <a href="{{route('admin.editproduct',['product_id'=>$product->id])}}"><i  class="fa fa-edit fa-2x"></i></a> --}}
+                                        <input wire:keyup="setQty('{{$item->rowId}}')" type="text"  class="text-center" size="1" value="{{$item->qty}}">
+                                        {{-- <i wire:click.event="increaseQuantity('{{$item->rowId}}')"  class="fa fa-arrow-up fa-2x text-info"></i>{{$item->qty}}<i wire:click.event="decreaseQuantity('{{$item->rowId}}')"  class="fa fa-arrow-down fa-2x text-info"></i> --}}
+                                    </td>
                                     <td>{{$item->model->created_at}}</td>
-                                    <td></td>
+
                                     <td>
                                         {{-- <a href="{{route('admin.editproduct',['product_id'=>$product->id])}}"><i  class="fa fa-edit fa-2x"></i></a> --}}
                                         <a href="#" onclick="confirm('Delete this Product?') || event.stopImmediatePropagation()" wire:click.event="destroy('{{$item->rowId}}')" style="margin-left: 10px;"><i  class="fa fa-times fa-2x text-danger"></i></a>
@@ -157,4 +175,5 @@
 
     </div>
 </div>
+
 
