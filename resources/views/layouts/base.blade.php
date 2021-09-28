@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+    <?php header('Content-Type: text/html; charset=utf-8');?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Home</title>
@@ -79,7 +80,7 @@
                                                     <li class="menu-item" >
                                                         <a title="Dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
                                                     </li>
-                                                    <li class="menu-item">
+                                                    {{-- <li class="menu-item">
                                                         <a title="Categories" href="{{route('admin.categories')}}">Categories</a>
                                                     </li>
                                                     <li class="menu-item">
@@ -108,7 +109,7 @@
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Settings" href="{{route('admin.settings')}}">Settings</a>
-                                                    </li>
+                                                    </li> --}}
                                                     <li class="menu-item" >
                                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout </a>
                                                     </li>

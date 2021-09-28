@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpController;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddCouponComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
@@ -20,6 +21,7 @@ use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminSettingComponent;
+use App\Http\Livewire\Admin\AdminViewOrderComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\CartComponent;
@@ -76,6 +78,9 @@ Route::get('/thank-you/{order_id}', ThankyouComponent::class)->name('thankyou');
 
 Route::get('/contact-us', ContactComponent::class)->name('contact');
 
+Route::get('/vieworder', [EmpController::class,'getAllOrders']);
+Route::get('/download-pdf', [EmpController::class,'downloadPDF']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -121,4 +126,6 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function() {
     Route::get('admin/contact-us', AdminContactComponent::class)->name('admin.contact');
 
     Route::get('admin/settings', AdminSettingComponent::class)->name('admin.settings');
+
+    Route::get('admin/vieworder', AdminViewOrderComponent::class)->name('admin.vieworder');
 });

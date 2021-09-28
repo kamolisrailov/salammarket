@@ -1,4 +1,10 @@
 <div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Категории в главном</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
     <div class="container" style="padding:30px 0;">
         <div class="row">
             <div class="col-md-12">
@@ -8,9 +14,9 @@
                             <div class="col-md-6">
                                 Manage Home Categories
                             </div>
-                            <div class="col-md-6">
-                               <a href="{{route('admin.products')}}" class="btn btn-success pull-right"> All Products</a>
-                            </div>
+                            {{-- <div class="col-md-6">
+                               <a href="{{route('admin.homecategories')}}" class="btn btn-success pull-right"> All Home Categories</a>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="panel-body">

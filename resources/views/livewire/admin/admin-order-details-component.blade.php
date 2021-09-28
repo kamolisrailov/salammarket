@@ -1,3 +1,9 @@
+ <div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Категории</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
 <div class="container" style="padding:30px 0;">
     <div class="row">
         <div class="col-md-12">
@@ -15,20 +21,36 @@
                 <div class="panel-body">
                     <table class="table table-striped">
                         <tr>
-                            <th>Order Id</th>
-                            <td>{{$order->id}}</td>
-                            <th>Order Date</th>
+                            <thead>
+                                <th>Order Id</th>
+                                <th>Order Date</th>
+                                <th>Order Status</th>
+                                @if($order->status == "delivered")
+                                <th>Delivery Date</th>
+
+                                @elseif($order->status == "canceled")
+                            <th>Cancellation Date</th>
+
+                            @endif
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{$order->id}}</td>
+
                             <td>{{$order->created_at}}</td>
-                            <th>Order Status</th>
+
                             <td>{{$order->status}}</td>
                             @if($order->status == "delivered")
-                            <th>Delivery Date</th>
+
                             <td>{{$order->delivered_date}}</td>
                             @elseif($order->status == "canceled")
-                            <th>Cancellation Date</th>
+
                             <td>{{$order->canceled_date}}</td>
                             @endif
                         </tr>
+                            </tbody>
+
                     </table>
                 </div>
             </div>
@@ -65,7 +87,7 @@
                              ?>
                             <li class="pr-cart-item">
                                 <div class="product-image">
-                                    <figure><img src="{{ asset('assets/images/products') }}/{{$item->product->image}}" alt="{{$item->product->name}}"></figure>
+                                    <figure ><img style="size: 10px;" src="{{ asset('assets/images/products') }}/{{$item->product->image}}" alt="{{$item->product->name}}"></figure>
                                 </div>
                                 <div class="product-name">
                                     <a class="link-to-product" href="{{route('product.details', ['slug'=>$item->product->slug])}}">{{$item->product->name}}</a>

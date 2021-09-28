@@ -1,4 +1,10 @@
 <div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Добавить Продукт</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
     <div class="container" style="padding:30px 0;">
         <div class="row">
             <div class="col-md-12">
@@ -92,7 +98,7 @@
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="stock_status">
                                         <option value="instock">InStock</option>
-                                        <option value="instock">Out of Stock</option>
+                                        <option value="outofstock">Out of Stock</option>
                                     </select>
                                     @error('stock_status')
                                     <p class="text-danger">{{$message}}</p>

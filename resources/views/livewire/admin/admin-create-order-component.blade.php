@@ -35,7 +35,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <a href="#" class="btn btn-success pull-right"  style="margin-left: 10px;">Create pdf</a>
+                    <a href="/vieworder" class="btn btn-success pull-right" style="margin-left: 10px;">View</a>
                     <a href="#" class="btn btn-success pull-right" wire:click.prevent="createDoc">Create docx</a>
                 </div>
             </div>

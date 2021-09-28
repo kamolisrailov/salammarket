@@ -52,6 +52,6 @@ class AdminEditCategoryComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.admin-edit-category-component')->layout('layouts.base');
+        return view('livewire.admin.admin-edit-category-component')->layout('layouts.admin');
     }
 }

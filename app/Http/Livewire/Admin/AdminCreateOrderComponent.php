@@ -38,8 +38,9 @@ class AdminCreateOrderComponent extends Component
 
         if(Cart::instance('order')->count()>0)
         {
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $phpWord->setDefaultFontName('dejavu sans');
         $phpWord->addParagraphStyle('My Style', array(
             'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(6))
         );
@@ -57,7 +58,7 @@ class AdminCreateOrderComponent extends Component
         $cellVCentered = array('valign' => 'center');
         $section->addText("СЧЕТ-ДОГОВОР № 9388", array( "size"=>8), array('align' => 'center'));
 
-        $section->addText("       г.Ташкент                                                                                                                                                                                                                              ".date("Y/m/d"), array("size"=>7),array('align' => 'left'));
+        $section->addText("       г.Ташкент                                                                                                                                                                      ".date("Y/m/d"), array("size"=>7),array('align' => 'left'));
         //$section->addText(date("Y/m/d"), array("size"=>7),array('align' => 'right'));
 
 
@@ -181,6 +182,26 @@ class AdminCreateOrderComponent extends Component
     }
 
 
+
+
+
+    public function createPdf()
+    {
+        // $domPdfPath = base_path('vendor/dompdf/dompdf');
+        // \PhpOffice\PhpWord\Settings::setPdfRendererPath($domPdfPath);
+        // \PhpOffice\PhpWord\Settings::setPdfRendererName('DomPDF');
+        // $phpWord = \PhpOffice\PhpWord\IOFactory::load('word-template/test.docx');
+        // $PDFWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord,'PDF');
+        // $PDFWriter->save(public_path('word-template/test.pdf'));
+
+
+    }
+
+
+
+
+
+
     use WithPagination;
 
 
@@ -218,6 +239,6 @@ class AdminCreateOrderComponent extends Component
             $products = Product::paginate(10);
         }
 
-        return view('livewire.admin.admin-create-order-component',['products'=>$products])->layout('layouts.base');
+        return view('livewire.admin.admin-create-order-component',['products'=>$products])->layout('layouts.admin');
     }
 }

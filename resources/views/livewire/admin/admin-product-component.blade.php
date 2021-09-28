@@ -7,6 +7,12 @@
             display: block !important;
         }
     </style>
+     <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Продукты</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
     <div class="container" style="padding:30px 0;">
     <div class="row">
         <div class="col-md-12">
@@ -50,7 +56,6 @@
                                     <td>{{$product->sale_price}}</td>
                                     <td>{{$product->category->name}}</td>
                                     <td>{{$product->created_at}}</td>
-                                    <td></td>
                                     <td>
                                         <a href="{{route('admin.editproduct',['product_id'=>$product->id])}}"><i  class="fa fa-edit fa-2x"></i></a>
                                         <a href="#" onclick="confirm('Delete this Product?') || event.stopImmediatePropagation()" wire:click.prevent="deleteProduct({{$product->id}})" style="margin-left: 10px;"><i  class="fa fa-times fa-2x text-danger"></i></a>
