@@ -40,6 +40,9 @@
 
         <!-- Custom Fonts -->
         <link href="{{ asset('dashassets/css/font-awesome.min.css') }}" rel="stylesheet">
+
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" integrity="sha512-8czuHxKbajKuQfbgBv5iwqftC1PbeLPmgVOYo8ZDlcOdi0OV18E+BbGQdqXs490kV9ZmJQTNupd0kvW8hokJlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -62,7 +65,7 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">SALAMMARKET</a>
+                    <a class="navbar-brand" href="{{route('admin.dashboard')}}">SALAMMARKET</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -73,7 +76,7 @@
                 </button>
 
                 <ul class="nav navbar-nav navbar-left navbar-top-links">
-                    <li><a href="/" target="_blank"><i class="fa fa-home fa-fw"></i> Website(Salammarket.uz)</a></li>
+
                 </ul>
 
                 <ul class="nav navbar-right navbar-top-links">
@@ -131,6 +134,7 @@
                             </li>
                         </ul>
                     </li> --}}
+                    <li><a href="/" target="_blank"><i class="fa fa-home fa-fw"></i> Salammarket.uz</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> {{Auth::user()->name}}<b class="caret"></b>
@@ -916,6 +920,8 @@
         <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
         <script src="{{ asset('dashassets/js/bootstrap.min.js') }}"></script>
 
+        {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+        <script src="{{ asset('dashassets/js/tables.js') }}"></script> --}}
         <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
         <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
@@ -925,6 +931,8 @@
         <script src="{{ asset('dashassets/js/metisMenu.min.js') }}"></script>
         <script src="{{ asset('dashassets/js/startmin.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js" integrity="sha512-0Z2o7qmtl7ixxWcEQxxTCT8mX4PsdffSGoVJ7A80zqt6DvdEHF800xrsSmKPkSoUaHtlIhkLAhCPb/tkf78SCA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -933,3 +941,8 @@
     </body>
     @endif
 </html>
+
+
+
+
+

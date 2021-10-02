@@ -7,7 +7,7 @@
             display: block !important;
         }
     </style>
-    <div class="container" style="padding:30px 0;">
+
     <div class="row">
         <div class=" panel-heading">
         <div class="col-md-6">
@@ -34,10 +34,7 @@
                 <div class="col-md-6">
 
                 </div>
-                <div class="col-md-6">
-                    <a href="/vieworder" class="btn btn-success pull-right" style="margin-left: 10px;">View</a>
-                    <a href="#" class="btn btn-success pull-right" wire:click.prevent="createDoc">Create docx</a>
-                </div>
+
             </div>
         </div>
                 <div class="panel-body">
@@ -73,7 +70,7 @@
                                     <td>{{$product->created_at}}</td>
                                     <td></td>
                                     <td>
-                                        <a href="#" wire:click.prevent="addproduct({{$product->id}}, '{{$product->SKU}}', '{{$product->name}}', {{$product->regular_price}})"><i  class="fa  fa-caret-square-o-down fa-2x"></i></a>
+                                        <a href="#" wire:click.prevent="addproduct({{$product->id}}, '{{$product->SKU}}', '{{$product->name}}', {{$product->regular_price}})"><i  class="fa  fa-caret-square-o-down fa-3x"></i></a>
                                         {{-- <a href="#" onclick="confirm('Delete this Product?') || event.stopImmediatePropagation()" wire:click.prevent="deleteProduct({{$product->id}})" style="margin-left: 10px;"><i  class="fa fa-times fa-2x text-danger"></i></a> --}}
                                     </td>
                                 </tr>
@@ -102,7 +99,12 @@
 
                         </div>
                     <div class="col-md-6">
-                        <a href="#" class="btn btn-warning pull-right" wire:click.event="destroyAll">Delete All </a>
+                        <a href="/vieworder" class="btn btn-success pull-right" style="margin-left: 10px;">View</a>
+                            <a href="#" class="btn btn-success pull-right" style="margin-left: 10px;" wire:click.prevent="createDoc">Create docx</a>
+                        <a href="#" class="btn btn-warning pull-right" wire:click.prevent="destroyAll">Delete All </a>
+
+
+
                     </div>
 
             </div>
@@ -150,7 +152,7 @@
                                     <td>{{$item->model->category->name}}</td>
                                     <td wire:model="qty">
                                         {{-- <a href="{{route('admin.editproduct',['product_id'=>$product->id])}}"><i  class="fa fa-edit fa-2x"></i></a> --}}
-                                        <input wire:keyup="setQty('{{$item->rowId}}')" type="text"  class="text-center" size="1" value="{{$item->qty}}">
+                                        <input wire:keyup="setQty('{{$item->rowId}}')" type="text"  class="text-center" size="2" value="{{$item->qty}}">
                                         {{-- <i wire:click.event="increaseQuantity('{{$item->rowId}}')"  class="fa fa-arrow-up fa-2x text-info"></i>{{$item->qty}}<i wire:click.event="decreaseQuantity('{{$item->rowId}}')"  class="fa fa-arrow-down fa-2x text-info"></i> --}}
                                     </td>
                                     <td>{{$item->model->created_at}}</td>
@@ -177,3 +179,15 @@
 </div>
 
 
+@push('scripts')
+
+<script>
+$(document).ready(function(){
+            window.livewire.on('alert_remove',()=>{
+                setTimeout(function(){ $(".alert-success").fadeOut('fast');
+                }, 1000); // 3 secs
+            });
+        });
+</script>
+
+@endpush

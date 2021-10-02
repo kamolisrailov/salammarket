@@ -68,7 +68,7 @@ Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
-Route::get('/productcategory/{category_slug}', CategoryComponent::class)->name('product.category');
+Route::get('/productcategory/{category_slug}/{scategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::get('/search', SearchComponent::class)->name('product.search');
 
@@ -101,7 +101,7 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function() {
 
     Route::get('admin/categories', AdminCategoryComponent::class)->name('admin.categories');
     Route::get('admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
-    Route::get('admin/category/edit/{category_id}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('admin/category/edit/{category_id}/{scategory_id?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
 
     Route::get('admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');

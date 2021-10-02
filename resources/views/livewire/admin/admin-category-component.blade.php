@@ -6,6 +6,17 @@
         nav .hidden{
             display: block !important;
         }
+        .sclist{
+            list-style: none;
+        }
+        .sclist li {
+            line-height: 33px;
+            border-bottom: 1px solid #ccc;
+        }
+        .slink {
+            font-size: 16px;
+            margin-left: 4px;
+        }
     </style>
     <div class="row">
     <div class="col-lg-12">
@@ -38,6 +49,7 @@
                                 <th>Id</th>
                                 <th>Category Name</th>
                                 <th>Slug</th>
+                                <th>Sub Category</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -47,6 +59,15 @@
                                     <td>{{$category->id}}</td>
                                     <td>{{$category->name}}</td>
                                     <td>{{$category->slug}}</td>
+                                    <td>
+                                        <ul class="sclist">
+                                            @foreach ($category->subCategories as $scategory)
+                                                <li><i class="fa fa-caret-right"></i> {{$scategory->name}}
+                                                    <a href="{{route('admin.editcategory',['category_id'=>$category->id,'scategory_id'=>$scategory->id])}}" class="slink"> <i class="fa fa-edit"></i>  </a>
+                                                    <a href="#" onclick="confirm('Delete this Subcategory?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSubCategory({{$scategory->id}})" class="slink"> <i class="fa fa-times text-danger"></i> </a> </li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
                                     <td>
                                         <a href="{{route('admin.editcategory',['category_id'=>$category->id])}}"><i  class="fa fa-edit fa-2x"></i></a>
                                         <a href="#" onclick="confirm('Delete this Category?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$category->id}})" style="margin-left: 10px;"><i  class="fa fa-times fa-2x text-danger"></i></a>

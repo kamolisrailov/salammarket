@@ -184,7 +184,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-money fa-5x"></i>
+
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">${{$totalRevenue}}</div>
@@ -225,6 +225,7 @@
             </a>
         </div>
     </div>
+
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-yellow">
             <div class="panel-heading">
@@ -271,7 +272,7 @@
             </a>
         </div>
     </div>
-
+</div>
 
 
 
@@ -294,14 +295,13 @@
                                     <th>Mobile</th>
                                     <th>Status</th>
                                     <th>Order Date</th>
-                                    <th class="text-center">Action</th>
+                                    <th >Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
 
                                         <td>{{$order->id}}</td>
-
                                         <td>${{$order->total}}</td>
                                         <td>{{$order->firstname}}</td>
                                         <td>{{$order->mobile}}</td>

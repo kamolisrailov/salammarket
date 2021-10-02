@@ -209,6 +209,7 @@ class AdminCreateOrderComponent extends Component
 
         Cart::instance('order')->add($product_id,$product_name,1,$product_price, ['sku'=>$SKU])->associate('App\Models\Product');
         session()->flash('message', 'Item added in Order');
+        $this->emit('alert_remove');
         //return redirect()->route('product.cart');
     }
 
@@ -217,6 +218,7 @@ class AdminCreateOrderComponent extends Component
         Cart::instance('order')->remove($rowId);
         //$this->emitTo('cart-count-component','refreshComponent');
         session()->flash('order_add_message', 'Item has been removed');
+        $this->emit('alert_remove');
     }
 
 
@@ -224,6 +226,7 @@ class AdminCreateOrderComponent extends Component
         Cart::instance('order')->destroy();
         //$this->emitTo('cart-count-component','refreshComponent');
         session()->flash('order_add_message', 'Order has been cleared');
+        $this->emit('alert_remove');
     }
 
 
