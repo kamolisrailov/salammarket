@@ -44,7 +44,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="col-md-4 control-label">Short Description</label>
                                 <div class="col-md-4">
                                    <textarea class="form-control" placeholder="Short Description" wire:model="short_description"></textarea>
@@ -52,7 +52,7 @@
                                    <p class="text-danger">{{$message}}</p>
                                    @enderror
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Description</label>
                                 <div class="col-md-4">
@@ -70,6 +70,16 @@
                                     @error('regular_price')
                                    <p class="text-danger">{{$message}}</p>
                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Purchase Price</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Purchase Price" class="form-control imput-md" wire:model="purchase_price"/>
+                                    @error('purchase_price')
+                                    <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -103,6 +113,18 @@
                                     @error('stock_status')
                                     <p class="text-danger">{{$message}}</p>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Attribute</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" wire:model="attribute_type">
+                                        <option value="штук">Штук</option>
+                                        <option value="пачка">Пачка</option>
+                                        <option value="блок">Блок</option>
+                                        <option value="кг">Кг</option>
+                                    </select>
                                 </div>
                             </div>
 

@@ -17,9 +17,11 @@ class AdminAddProductComponent extends Component
     public $short_description;
     public $description;
     public $regular_price;
+    public $purchase_price;
     public $sale_price;
     public $SKU;
     public $stock_status;
+    public $attribute_type;
     public $featured;
     public $quantity;
     public $image;
@@ -31,6 +33,7 @@ class AdminAddProductComponent extends Component
     public function mount()
     {
         $this->stock_status = 'instock';
+        $this->attribute_type = 'штук';
         $this->featured = 0;
     }
 
@@ -45,9 +48,9 @@ class AdminAddProductComponent extends Component
         $this->validateOnly($fields,[
         'name' => 'required',
         'slug' => 'required|unique:products',
-        'short_description' => 'required',
         'description' => 'required',
         'regular_price' => 'required|numeric',
+        'purchase_price' => 'numeric',
         'sale_price' => 'numeric',
         'SKU' => 'required',
         'stock_status' => 'required',
@@ -62,9 +65,9 @@ class AdminAddProductComponent extends Component
         $this->validate([
             'name' => 'required',
             'slug' => 'required|unique:products',
-            'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
+            'purchase_price' => 'numeric',
             'sale_price' => 'numeric',
             'SKU' => 'required',
             'stock_status' => 'required',
@@ -76,12 +79,13 @@ class AdminAddProductComponent extends Component
         $product = new Product();
         $product->name = $this->name;
         $product->slug = $this->slug;
-        $product->short_description = $this->short_description;
         $product->description = $this->description;
         $product->regular_price = $this->regular_price;
+        $product->purchase_price = $this->purchase_price;
         $product->sale_price = $this->sale_price;
         $product->SKU = $this->SKU;
         $product->stock_status = $this->stock_status;
+        $product->attribute_type = $this->attribute_type;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();

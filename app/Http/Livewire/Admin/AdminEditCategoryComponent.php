@@ -11,6 +11,7 @@ class AdminEditCategoryComponent extends Component
 {
     //public $category_slug;
     public $category_id;
+    public $parent_category;
     public $name;
     public $slug;
     public $scategory_id;
@@ -23,16 +24,15 @@ class AdminEditCategoryComponent extends Component
             $this->scategory_id = $scategory_id;
             $scategory = Subcategory::where('id', $scategory_id)->first();
             $this->scategory_id = $scategory->id;
-            $this->category_id = $scategory->category_id;
+            $this->parent_category = $scategory->category_id;
             $this->name = $scategory->name;
             $this->slug = $scategory->slug;
         }else
         {
-            $this->category_id = $category_id;
             $category = Category::where('id', $category_id)->first();
-            $this->category_id = $category->id;
             $this->name = $category->name;
             $this->slug = $category->slug;
+            $this->parent_category ="none";
         }
 
     }

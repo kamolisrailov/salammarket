@@ -19,9 +19,11 @@ class AdminEditProductComponent extends Component
     public $short_description;
     public $description;
     public $regular_price;
+    public $purchase_price;
     public $sale_price;
     public $SKU;
     public $stock_status;
+    public $attribute_type;
     public $featured;
     public $image;
     public $quantity;
@@ -38,12 +40,13 @@ class AdminEditProductComponent extends Component
         $product = Product::where('id',$product_id)->first();
         $this->name = $product->name;
         $this->slug = $product->slug;
-        $this->short_description = $product->short_description;
         $this->description = $product->description;
         $this->regular_price = $product->regular_price;
+        $this->purchase_price = $product->purchase_price;
         $this->sale_price = $product->sale_price;
         $this->SKU = $product->SKU;
         $this->stock_status = $product->stock_status;
+        $this->attribute_type = $product->attribute_type;
         $this->featured = $product->featured;
         $this->quantity = $product->quantity;
         $this->image = $product->image;
@@ -67,9 +70,9 @@ class AdminEditProductComponent extends Component
         $this->validateOnly($fields,[
         'name' => 'required',
         'slug' => 'required',
-        'short_description' => 'required',
         'description' => 'required',
         'regular_price' => 'required|numeric',
+        'purchase_price' => 'numeric',
         'sale_price' => 'numeric',
         'SKU' => 'required',
         'stock_status' => 'required',
@@ -90,9 +93,9 @@ class AdminEditProductComponent extends Component
         $this->validate([
             'name' => 'required',
             'slug' => 'required',
-            'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
+            'purchase_price' => 'numeric',
             'sale_price' => 'numeric',
             'SKU' => 'required',
             'stock_status' => 'required',
@@ -110,12 +113,13 @@ class AdminEditProductComponent extends Component
         $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->slug = $this->slug;
-        $product->short_description = $this->short_description;
         $product->description = $this->description;
         $product->regular_price = $this->regular_price;
+        $product->purchase_price = $this->purchase_price;
         $product->sale_price = $this->sale_price;
         $product->SKU = $this->SKU;
         $product->stock_status = $this->stock_status;
+        $product->attribute_type = $this->attribute_type;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
         if($this->newimage)
